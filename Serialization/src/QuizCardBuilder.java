@@ -76,6 +76,8 @@ public class QuizCardBuilder {
 		newMenuItem.addActionListener(new NewMenuListener());
 		saveMenuItem.addActionListener(new SaveMenuListener());
 		
+		fileMenu.add(newMenuItem);
+		fileMenu.add(saveMenuItem);
 		
 		JMenu helpMenu = new JMenu("Help");
 		
@@ -84,8 +86,15 @@ public class QuizCardBuilder {
 		aboutMenuItem.addActionListener(new AboutMenuListener());
 		versionMenuItem.addActionListener(new VersionMenuListener());
 		
+		helpMenu.add(aboutMenuItem);
+		helpMenu.add(versionMenuItem);
 		
+		//Add both menus to the MenuBar now
+		menuBar.add(fileMenu);
+		menuBar.add(helpMenu);
 		
+		//Add the MenuBar to the Frame
+		frame.setJMenuBar(menuBar);
 		
 		frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
 		frame.setSize(500,600);
